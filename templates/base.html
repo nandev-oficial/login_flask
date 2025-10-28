@@ -1,0 +1,22 @@
+<html lang="ca">
+    <head>
+        <meta  charset="UTF8">
+        <title> lOGIN DE DEMO</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+        </head>
+    <body>
+        <div class="card">
+            {% with messages=get_flashed_messages(with_categories=true) %}
+                {% if message %}
+                    {%for cat,msg in messages %}    
+                        <div class="msg {{cat}}"> {{msg}}</div>
+
+                    {% endfor %}
+                {% endif %}
+            {%endwith %} 
+            {% block content %}
+            
+            {% endblock %}   
+        </div>
+    </body>
+</html>
